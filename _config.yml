@@ -16,8 +16,8 @@
 title: Web Components
 email: ""
 description: "" # this means to ignore newlines until "baseurl:"
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/ComponentsWeb" # the subpath of your site, e.g. /blog
+url: "https://ppparihar.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 
 # Build settings
@@ -37,3 +37,10 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+exclude:
+  #- "bower_components"
+  - "bower.json"
+ # - "node_modules"
+  - "package.json"
+include:
+  - .nojekyll
