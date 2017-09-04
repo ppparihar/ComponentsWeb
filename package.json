@@ -7,7 +7,9 @@
     "eslint-plugin-html": "^2.0.0",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
-    "grunt-exec": "^3.0.0"
+    "grunt-exec": "^3.0.0",
+    "gulp": "^3.9.1",
+    "run-sequence": "^2.1.0"
   },
   "scripts": {
     "lint": "npm run lint:javascript",
