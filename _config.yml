@@ -39,6 +39,7 @@ exclude:
   - vendor/ruby/
   - bower.json
   - package.json
+  - scripts
 # exclude:
 #   #- "bower_components"
 #   - "bower.json"

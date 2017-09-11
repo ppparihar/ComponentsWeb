@@ -1,37 +1,11 @@
-language: ruby
-rvm:
- - 2.4
+language: node_js
+node_js:
+  - '6.9.5'
 install:
-  - npm install
-script:
- - bundle exec rake build
-before_script: |
-  if [ -n "$GITHUB_API_KEY" ]; then
-    cd "$TRAVIS_BUILD_DIR"
-    # This generates a `web` directory containing the website.
-    make _site
-    cd _site
-    git init
-    git checkout -b gh-pages
-   # git add .
-    #git -c user.name='travis' -c user.email='travis' commit -m init
-    # Make sure to make the output quiet, or else the API token will leak!
-    # This works because the API key can replace your password.
-    #git push #-f -q https://ppparihar:$GITHUB_API_KEY@github.com/ppparihar/ComponentsWeb gh-pages &2>/dev/null
-    cd "$TRAVIS_BUILD_DIR"
-  fi
-after_success: |
-  if [ -n "$GITHUB_API_KEY" ]; then
-    cd "$TRAVIS_BUILD_DIR"
-    # This generates a `web` directory containing the website.
-    make _site
-    cd _site
-    #git init
-    #git checkout -b gh-pages
-    git add .
-    git -c user.name='travis' -c user.email='travis' commit -m 'travis deploy'
-    # Make sure to make the output quiet, or else the API token will leak!
-    # This works because the API key can replace your password.
-    git push -f -q https://ppparihar:$GITHUB_API_KEY@github.com/ppparihar/ComponentsWeb gh-pages
-    cd "$TRAVIS_BUILD_DIR"
-  fi
+  - ./scripts/ci/install.sh
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
+  on:
+    branch: master
