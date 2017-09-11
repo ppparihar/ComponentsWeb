@@ -2,4 +2,19 @@ language: ruby
 rvm:
  - 2.4
 script:
- - bundle exec rake deploy
+ - bundle exec rake build
+after_success: |
+  if [ -n "$GITHUB_API_KEY" ]; then
+    cd "$TRAVIS_BUILD_DIR"
+    # This generates a `web` directory containing the website.
+    make _site
+    cd _site
+    git init
+    git checkout -b gh-pages
+    git add .
+    git -c user.name='travis' -c user.email='travis' commit -m init
+    # Make sure to make the output quiet, or else the API token will leak!
+    # This works because the API key can replace your password.
+    git push -f -q https://ppparihar:$GITHUB_API_KEY@github.com/ppparihar/ComponentsWeb gh-pages &2>/dev/null
+    cd "$TRAVIS_BUILD_DIR"
+  fi
