@@ -1,6 +1,6 @@
 require "rubygems"
 
-desc "Deploy to Github Pages"
+# desc "Deploy to Github Pages"
 task :deploy do
   puts "## Deploying to Github Pages"
 
@@ -19,4 +19,12 @@ task :deploy do
 
     puts "## Deploy Complete!"
   end
+end
+
+task :build do
+  puts "## Deploying to Github Pages"
+
+  puts "## Generating site"
+  #system "gulp build"
+
 end
