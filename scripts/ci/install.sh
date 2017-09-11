@@ -5,5 +5,5 @@ travisFoldEnd "npm-install"
 
 # Install bower packages
 travisFoldStart "bower-install"
-  $(npm bin)/bower install
+  bower install
 travisFoldEnd "bower-install"
