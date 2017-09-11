@@ -3,6 +3,8 @@ node_js:
   - '6.9.5'
 install:
   - ./scripts/ci/install.sh
+before_install:
+  - chmod +x ./scripts/ci/install.sh
 deploy:
   provider: pages
   skip_cleanup: true
