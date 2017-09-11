@@ -25,6 +25,6 @@ task :build do
   puts "## Deploying to Github Pages"
 
   puts "## Generating site"
-  #system "gulp build"
+  system "gulp build"
 
 end
