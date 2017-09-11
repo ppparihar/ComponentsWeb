@@ -1,7 +1,5 @@
 language: ruby
 rvm:
  - 2.4
-install:
- - npm install
 script:
  - bundle exec rake build
