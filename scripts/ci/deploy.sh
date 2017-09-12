@@ -35,13 +35,22 @@ cd out
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 cd ..
 
+cd out
+echo "out list"
+ls -a
+cd ..
 # Clean out existing contents
 rm -rf out/**/* || exit 0
 
+cd out
+echo "out list"
+ls -a
+cd ..
 # Run our compile script
 doCompile
 cd out
-ls -l
+echo "out list"
+ls -a
 cd ..
 
 # Now let's go have some fun with the cloned repo
