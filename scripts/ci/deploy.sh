@@ -41,12 +41,17 @@ rm -rf out/**/* || exit 0
 # Run our compile script
 doCompile
 
+search_dir = 'out'
+for entry in "$search_dir"/*
+do
+  echo "$entry"
+done
 # Now let's go have some fun with the cloned repo
 cd out
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
 
-ls
+
 # If there are no changes to the compiled out (e.g. this is a README update) then just bail.
 if git diff ; then
     echo "No changes to the output on this push; exiting."
