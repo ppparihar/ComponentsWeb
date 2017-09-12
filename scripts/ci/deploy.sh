@@ -36,14 +36,14 @@ git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 cd ..
 
 cd out
-echo "out list"
+echo "before clean up out list"
 ls -a
 cd ..
 # Clean out existing contents
 rm -rf out/**/* || exit 0
 
 cd out
-echo "out list"
+echo "After clean up out list"
 ls -a
 cd ..
 # Run our compile script
@@ -60,10 +60,10 @@ git config user.email "$COMMIT_AUTHOR_EMAIL"
 
 
 # If there are no changes to the compiled out (e.g. this is a README update) then just bail.
-if git diff --quiet; then
-    echo "No changes to the output on this push; exiting."
-    exit 0
-fi
+# if git diff --quiet; then
+#     echo "No changes to the output on this push; exiting."
+#     exit 0
+# fi
   echo "*******************************"
   echo "Preparing to Deploy to GitHub Pages."
   echo "*******************************"
