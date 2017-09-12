@@ -7,11 +7,15 @@ var sourceFiles = [ 'bower_components/**', 'images/**','node_modules/**','src/**
 var destination = 'out/';
 
 
-function copy() {
-    return gulp
-    .src(sourceFiles)
-    .pipe(gulpCopy(destination));   
+function copy(srcName, destName, excludePaths) {
+  return gulp
+  .src(sourceFiles)
+  .pipe(gulpCopy(destination));   
 }
+
+gulp.task('build', function () {
+  return copy();
+});
 
 gulp.task('jekyll-build', function (cb) {
   exec('jekyll build --trace', function (err, stdout, stderr) {
@@ -25,9 +29,7 @@ gulp.task('bower-update', function (cb) {
  });
 
 
- gulp.task('build', function() {
-  copy();
-});
+
  gulp.task('default', [
   'build'
 ]);
