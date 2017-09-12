@@ -5,11 +5,12 @@ install:
 - "./scripts/ci/install.sh"
 - "./scripts/ci/deploy.sh"
 before_install:
-- openssl aes-256-cbc -K $encrypted_c2335282bf8b_key -iv $encrypted_c2335282bf8b_iv
+- openssl aes-256-cbc -K $encrypted_c26e1713c480_key -iv $encrypted_c26e1713c480_iv
   -in deploy_key.enc -out deploy_key -d
+
 - chmod +x ./scripts/ci/install.sh
 - chmod +x ./scripts/ci/deploy.sh
 env:
   global:
-  - ENCRYPTION_LABEL: "c2335282bf8b"
+  - ENCRYPTION_LABEL: "c26e1713c480"
   - COMMIT_AUTHOR_EMAIL: "loveprem073@gmail.com"
