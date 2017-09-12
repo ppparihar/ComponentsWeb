@@ -40,13 +40,10 @@ rm -rf out/**/* || exit 0
 
 # Run our compile script
 doCompile
-
+cd out
 ls -l
-# search_dir = "out"
-# for entry in "out"/*
-# do
-#   echo "$entry"
-# done
+cd ..
+
 # Now let's go have some fun with the cloned repo
 cd out
 git config user.name "Travis CI"
