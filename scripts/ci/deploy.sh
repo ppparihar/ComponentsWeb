@@ -41,8 +41,7 @@ rm -rf out/**/* || exit 0
 # Run our compile script
 doCompile
 
-search_dir = 'out'
-for entry in "$search_dir"/*
+for entry in "ls out"/*
 do
   echo "$entry"
 done
