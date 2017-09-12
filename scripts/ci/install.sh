@@ -1,9 +1,9 @@
 # Install all npm dependencies 
-travisFoldStart "npm-install"
+#travisFoldStart "npm-install"
   npm install
-travisFoldEnd "npm-install"
-
+#travisFoldEnd "npm-install"
+  npm install -g polymer-cli
 # Install bower packages
-travisFoldStart "bower-install"
+#travisFoldStart "bower-install"
   bower install
-travisFoldEnd "bower-install"
+#travisFoldEnd "bower-install"
