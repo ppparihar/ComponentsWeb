@@ -3,7 +3,7 @@ node_js:
 - 6.9.5
 install:
 - "./scripts/ci/install.sh"
-deploy:
+script:
 - "./scripts/ci/deploy.sh"
 before_install:
 - openssl aes-256-cbc -K $encrypted_c26e1713c480_key -iv $encrypted_c26e1713c480_iv
