@@ -38,11 +38,11 @@ cd ..
 cd out
 echo "before clean up out list"
 ls -a
-cd ..
+#cd ..
 # Clean out existing contents
-rm -rf out/**/* || exit 0
+rm -rf !(".git") || exit 0
 
-cd out
+#cd out
 echo "After clean up out list"
 ls -a
 cd ..
