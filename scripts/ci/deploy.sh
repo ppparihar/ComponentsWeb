@@ -41,7 +41,7 @@ ls -a
 #cd ..
 # Clean out existing contents
 # find . \! -name '.git' -delete || exit 0
-find . -path ./.git -prune -o -exec rm -rf {} \;
+find . -path ./.git -prune -o -exec rm -rf {} \; 2> /dev/null
 
 #cd out
 echo "After clean up out list"
