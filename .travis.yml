@@ -7,7 +7,7 @@ install:
 deploy:
   provider: script
   skip_cleanup: true
-  script: "./scripts/ci/deploy.sh"
+  script: "bash ./scripts/ci/deploy.sh"
 # script:
 #   - "./scripts/ci/deploy.sh"
 before_install:
