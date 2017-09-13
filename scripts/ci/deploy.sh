@@ -40,7 +40,7 @@ echo "before clean up out list"
 ls -a
 #cd ..
 # Clean out existing contents
-find . \! -name '.git' -delete || exit 0
+# find . \! -name '.git' -delete || exit 0
 
 #cd out
 echo "After clean up out list"
@@ -83,4 +83,4 @@ eval `ssh-agent -s`
 ssh-add ../deploy_key
 
 # Now that we're all set up, we can push.
-git push $SSH_REPO $TARGET_BRANCH --force
+git push $SSH_REPO $TARGET_BRANCH
