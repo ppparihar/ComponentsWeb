@@ -40,7 +40,7 @@ echo "before clean up out list"
 ls -a
 cd ..
 # Clean out existing contents
-#rm -f out/**/* || exit 0
+rm -rf out/**/* || exit 0
 
 cd out
 echo "After clean up out list"
@@ -69,7 +69,7 @@ git config user.email "$COMMIT_AUTHOR_EMAIL"
   echo "*******************************"
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
-git add -A .
+git add -A 
 git commit -m "Deploy to GitHub Pages: ${SHA}"
 
 # Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
