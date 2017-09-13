@@ -69,7 +69,7 @@ git config user.email "$COMMIT_AUTHOR_EMAIL"
   echo "*******************************"
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
-git add -A 
+git add .
 
   echo "*******************************"
   echo "Ready to commit"
