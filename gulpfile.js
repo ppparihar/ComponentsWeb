@@ -3,7 +3,7 @@ var runSequence = require('run-sequence');
 var exec = require('child_process').exec;
 
 var gulpCopy = require('gulp-copy');
-var sourceFiles = [ 'bower_components/**', 'images/**','node_modules/**','src/**' ,'deploy_key.enc','index.html','polymer.json','css/**','lib/**'];
+var sourceFiles = ['images/**','node_modules/**','src/**' ,'deploy_key.enc','index.html','polymer.json','css/**','lib/**'];
 var destination = 'out/';
 
 
