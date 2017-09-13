@@ -40,7 +40,7 @@ echo "before clean up out list"
 ls -a
 cd ..
 # Clean out existing contents
-sudo rm -rf out/**/* || exit 0
+rm -f out/**/* || exit 0
 
 cd out
 echo "After clean up out list"
