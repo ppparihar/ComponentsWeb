@@ -11,7 +11,7 @@ function doCompile {
     
     polymer build
 
-    cp -ar build/es5-bundled/* /out/
+    cp -ar build/es5-bundled/* out/
      
     echo "*******************************"
     echo "build completed."
