@@ -9,7 +9,9 @@ function doCompile {
     echo "build started."
     echo "*******************************"
     
-    gulp build
+    polymer build
+
+    cp -ar build/es5-bundled/* /out/
      
     echo "*******************************"
     echo "build completed."
@@ -35,51 +37,29 @@ cd out
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 cd ..
 
-cd out
-echo "before clean up out list"
-ls -a
-#cd ..
 # Clean out existing contents
-# find . \! -name '.git' -delete || exit 0
-#find . -path ./.git -prune -o -exec rm -rf {} \; >/dev/null 2>&1
-#cd out
-echo "After clean up out list"
-ls -a
-cd ..
+#rm -rf out/**/* || exit 0
+
 # Run our compile script
 doCompile
-cd out
-echo "out list"
-ls -a
-cd ..
 
 # Now let's go have some fun with the cloned repo
 cd out
 git config user.name "Travis CI"
 git config user.email "$COMMIT_AUTHOR_EMAIL"
 
-
 # If there are no changes to the compiled out (e.g. this is a README update) then just bail.
-# if git diff --quiet; then
-#     echo "No changes to the output on this push; exiting."
-#     exit 0
-# fi
+if git diff --quiet; then
+    echo "No changes to the output on this push; exiting."
+    exit 0
+fi
   echo "*******************************"
   echo "Preparing to Deploy to GitHub Pages."
   echo "*******************************"
 # Commit the "changes", i.e. the new version.
 # The delta will show diffs between new and old versions.
-git add .
-
-  echo "*******************************"
-  echo "Ready to commit"
-  echo "*******************************"
-
+git add -A .
 git commit -m "Deploy to GitHub Pages: ${SHA}"
-
-  echo "*******************************"
-  echo "Ready to push"
-  echo "*******************************"
 
 # Get the deploy key by using Travis's stored variables to decrypt deploy_key.enc
 ENCRYPTED_KEY_VAR="encrypted_${ENCRYPTION_LABEL}_key"

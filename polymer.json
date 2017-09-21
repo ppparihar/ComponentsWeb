@@ -20,5 +20,21 @@
   ],
   "lint": {
     "rules": ["polymer-2"]
-  }
+  }, 
+  "builds": [
+    {
+      "preset": "es5-bundled",
+      "bundle": false,
+      "js": {
+        "minify": false,
+        "compile": true
+      },
+      "css": {
+        "minify": false
+      },
+      "html": {
+        "minify": false
+      }
+    }
+  ]
 }
